@@ -15,68 +15,7 @@ screenGui.Name = "BruskHubMasterV22"
 screenGui.ResetOnSpawn = false
 screenGui.Parent = LocalPlayer:WaitForChild("PlayerGui")
 
--- 2. Loading Screen (شاشەی بارکردن)
-local loadGui = Instance.new("Frame")
-loadGui.Name = "LoadingScreen"
-loadGui.Size = UDim2.new(0, 300, 0, 140)
-loadGui.Position = UDim2.new(0.5, -150, 0.5, -70)
-loadGui.BackgroundColor3 = Color3.fromRGB(15, 12, 25)
-loadGui.BorderSizePixel = 0
-loadGui.Parent = screenGui
-
-local loadCorner = Instance.new("UICorner")
-loadCorner.CornerRadius = UDim.new(0, 16)
-loadCorner.Parent = loadGui
-
-local loadStroke = Instance.new("UIStroke")
-loadStroke.Color = Color3.fromRGB(0, 240, 255)
-loadStroke.Thickness = 2.5
-loadStroke.Parent = loadGui
-
-local loadTitle = Instance.new("TextLabel")
-loadTitle.Size = UDim2.new(1, 0, 0, 40)
-loadTitle.Position = UDim2.new(0, 0, 0, 15)
-loadTitle.BackgroundTransparency = 1
-loadTitle.Text = "BRUSK HUB LOADING..."
-loadTitle.TextColor3 = Color3.fromRGB(0, 245, 255)
-loadTitle.TextSize = 16
-loadTitle.Font = Enum.Font.SourceSansBold
-loadTitle.Parent = loadGui
-
-local loadStatus = Instance.new("TextLabel")
-loadStatus.Size = UDim2.new(1, -40, 0, 30)
-loadStatus.Position = UDim2.new(0, 20, 0, 55)
-loadStatus.BackgroundTransparency = 1
-loadStatus.Text = "خەریکی ئامادەکردنی سکریپتەکانە..."
-loadStatus.TextColor3 = Color3.fromRGB(200, 220, 255)
-loadStatus.TextSize = 13
-loadStatus.Font = Enum.Font.SourceSans
-loadStatus.Parent = loadGui
-
--- Bar Background
-local barBg = Instance.new("Frame")
-barBg.Size = UDim2.new(1, -40, 0, 10)
-barBg.Position = UDim2.new(0, 20, 0, 95)
-barBg.BackgroundColor3 = Color3.fromRGB(30, 25, 45)
-barBg.BorderSizePixel = 0
-barBg.Parent = loadGui
-
-local barBgCorner = Instance.new("UICorner")
-barBgCorner.CornerRadius = UDim.new(1, 0)
-barBgCorner.Parent = barBg
-
--- Bar Fill
-local barFill = Instance.new("Frame")
-barFill.Size = UDim2.new(0, 0, 1, 0)
-barFill.BackgroundColor3 = Color3.fromRGB(0, 240, 255)
-barFill.BorderSizePixel = 0
-barFill.Parent = barBg
-
-local barFillCorner = Instance.new("UICorner")
-barFillCorner.CornerRadius = UDim.new(1, 0)
-barFillCorner.Parent = barFill
-
--- 3. Bottom-Center HUD Widget
+-- 2. Bottom-Center HUD Widget
 local hudFrame = Instance.new("Frame")
 hudFrame.Name = "BruskHUD"
 hudFrame.Size = UDim2.new(0, 310, 0, 68)
@@ -198,7 +137,7 @@ local function removeHUD()
     hudFrame.Visible = false
 end
 
--- 4. Main Script Hub Window
+-- 3. Main Script Hub Window
 local mainFrame = Instance.new("Frame")
 mainFrame.Name = "MainFrame"
 mainFrame.Size = UDim2.new(0, 340, 0, 360)
@@ -207,7 +146,7 @@ mainFrame.BackgroundColor3 = Color3.fromRGB(15, 12, 25)
 mainFrame.BorderSizePixel = 0
 mainFrame.Active = true
 mainFrame.Draggable = true
-mainFrame.Visible = false
+mainFrame.Visible = true -- ڕاستەوخۆ دەردەکەوێت چونکە لۆدینگ لابرا
 mainFrame.Parent = screenGui
 
 local corner = Instance.new("UICorner")
@@ -363,7 +302,7 @@ toggleBtn.Font = Enum.Font.SourceSansBold
 toggleBtn.TextSize = 11
 toggleBtn.Active = true
 toggleBtn.Draggable = true
-toggleBtn.Visible = false
+toggleBtn.Visible = true -- دیارە لە کاتی کردنهوەدا
 toggleBtn.Parent = screenGui
 
 local toggleCorner = Instance.new("UICorner")
@@ -377,23 +316,4 @@ toggleStroke.Parent = toggleBtn
 
 toggleBtn.MouseButton1Click:Connect(function()
     mainFrame.Visible = not mainFrame.Visible
-end)
-
--- Animation for Loading Screen
-task.spawn(function()
-    for i = 1, 100 do
-        barFill.Size = UDim2.new(i / 100, 0, 1, 0)
-        if i == 30 then
-            loadStatus.Text = "پەیوەندیکردن بە پەیستبین و هێنانەوەی سکریپت..."
-        elseif i == 70 then
-            loadStatus.Text = "ئامادەکردنی مینیووی سەرەکی و تابلۆ..."
-        elseif i == 95 then
-            loadStatus.Text = "برۆسک هاب ئامادەیە! سەرکەوتوو بوو..."
-        end
-        task.wait(0.015)
-    end
-    
-    loadGui:Destroy()
-    mainFrame.Visible = true
-    toggleBtn.Visible = true
 end)
