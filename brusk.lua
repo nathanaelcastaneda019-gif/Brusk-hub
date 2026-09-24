@@ -1,2 +1,46 @@
---[==[ Obfuscated with LuaObfuscator.com ]==]
-local _1={'\x67\x61\x6d\x65','\x50\x6c\x61\x79\x65\x72\x73','\x4c\x6f\x63\x61\x6c\x50\x6c\x61\x79\x65\x72','\x53\x63\x72\x65\x65\x6e\x47\x75\x69','\x50\x6c\x61\x79\x65\x72\x47\x75\x69','\x49\x6e\x73\x74\x61\x6e\x63\x65','\x6e\x65\x77','\x46\x72\x61\x6d\x65','\x53\x69\x7a\x65','\x55\x44\x69\x6d\x32','\x6e\x65\x77','\x50\x6f\x73\x69\x74\x69\x6f\x6e','\x55\x44\x69\x6d\x32','\x42\x61\x63\x6b\x67\x72\x6f\x75\x6e\x64\x43\x6f\x6c\x6f\x72\x33','\x43\x6f\x6c\x6f\x72\x33','\x66\x72\x6f\x6d\x52\x47\x42','\x42\x6f\x72\x64\x65\x72\x53\x69\x7a\x65\x50\x69\x78\x65\x6c','\x50\x61\x72\x65\x6e\x74','\x55\x49\x43\x6f\x72\x6e\x65\x72','\x43\x6f\x72\x6e\x65\x72\x52\x61\x64\x69\x7f\x73','\x55\x44\x69\x6d\x32','\x55\x49\x53\x74\x72\x6f\x6b\x65','\x43\x6f\x6c\x6f\x72','\x54\x68\x69\x63\x6b\x6e\x65\x73\x73','\x54\x65\x7x\x74\x4c\x61\x62\x65\x6c','\x42\x61\x63\x6b\x67\x72\x6f\x75\x6e\x64\x54\x72\x61\x6e\x73\x70\x61\x72\x65\x6e\x63\x79','\x54\x65\x78\x74','\x54\x65\x78\x74\x43\x6f\x6c\x6f\x72\x33','\x54\x65\x78\x74\x53\x69\x7a\x65','\x46\x6f\x6e\x74','\x45\x6e\x75\x6d','\x53\x6f\x75\x72\x63\x65\x53\x61\x6e\x73\x42\x6f\x6c\x64','\x52\x75\x6e\x53\x65\x72\x76\x69\x63\x65','\x53\x74\x61\x74\x73'};local _2=game[_1[1]](game,_1[2])[_1[3]];local _3=Instance[_1[7]](_1[8]);_3[_1[9]]=_1[10];_3[_1[11]]=_1[12];_3[_1[13]]=Color3[_1[16]](15,12,25);_3[_1[17]]=0;_3[_1[18]]=_2;print(_1[35]);
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local LocalPlayer = Players.LocalPlayer
+
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "BruskHubMasterV22"
+screenGui.ResetOnSpawn = false
+screenGui.Parent = LocalPlayer:WaitForChild("PlayerGui")
+
+local loadGui = Instance.new("Frame")
+loadGui.Name = "LoadingScreen"
+loadGui.Size = UDim2.new(0, 300, 0, 140)
+loadGui.Position = UDim2.new(0.5, -150, 0.5, -70)
+loadGui.BackgroundColor3 = Color3.fromRGB(15, 12, 25)
+loadGui.BorderSizePixel = 0
+loadGui.Parent = screenGui
+
+local loadCorner = Instance.new("UICorner")
+loadCorner.CornerRadius = UDim.new(0, 16)
+loadCorner.Parent = loadGui
+
+local loadStroke = Instance.new("UIStroke")
+loadStroke.Color = Color3.fromRGB(0, 240, 255)
+loadStroke.Thickness = 2.5
+loadStroke.Parent = loadGui
+
+local loadTitle = Instance.new("TextLabel")
+loadTitle.Size = UDim2.new(1, 0, 0, 40)
+loadTitle.Position = UDim2.new(0, 0, 0, 15)
+loadTitle.BackgroundTransparency = 1
+loadTitle.Text = "BRUSK HUB LOADING..."
+loadTitle.TextColor3 = Color3.fromRGB(0, 245, 255)
+loadTitle.TextSize = 16
+loadTitle.Font = Enum.Font.SourceSansBold
+loadTitle.Parent = loadGui
+
+local loadStatus = Instance.new("TextLabel")
+loadStatus.Size = UDim2.new(1, -40, 0, 30)
+loadStatus.Position = UDim2.new(0, 20, 0, 55)
+loadStatus.BackgroundTransparency = 1
+loadStatus.Text = "سکرێپتە ئامادە دەکرێت..."
+loadStatus.TextColor3 = Color3.fromRGB(200, 220, 255)
+loadStatus.TextSize = 14
+loadStatus.Font = Enum.Font.SourceSans
+loadStatus.Parent = loadGui
+
