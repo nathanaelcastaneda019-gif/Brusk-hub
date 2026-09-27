@@ -1,5 +1,5 @@
 -- ==========================================
--- BRUSK HUB | CLEAN & FAST MENU
+-- BRUSK HUB | MIRANDA REMOVED
 -- ==========================================
 
 local Players = game:GetService("Players")
@@ -16,12 +16,12 @@ pcall(function()
     end
 end)
 
-if targetParent:FindFirstChild("BruskHubCleanV500") then
-    targetParent.BruskHubCleanV500:Destroy()
+if targetParent:FindFirstChild("BruskHubNoMirandaV800") then
+    targetParent.BruskHubNoMirandaV800:Destroy()
 end
 
 local screenGui = Instance.new("ScreenGui")
-screenGui.Name = "BruskHubCleanV500"
+screenGui.Name = "BruskHubNoMirandaV800"
 screenGui.ResetOnSpawn = false
 screenGui.Parent = targetParent
 
@@ -247,15 +247,15 @@ local function createBtn(parentFrame, tKey, sKey, color, callback)
     return tLabel, sLabel
 end
 
--- دوگمەکانی مەنیو
-createBtn(container, "🔥 Miranda Hub", "سکرپتی خێرا بۆ دزینی هێلکەکان", Color3.fromRGB(45, 20, 80), function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/miirandahub/loader/main/stealaeggs"))()
-    notify("Miranda Hub Loaded!")
-end)
-
+-- دوگمەکانی مەنیو (میراندا لادراوە)
 createBtn(container, "🌶️ Chilli Hub", "سکرپتی خێرا بۆ Steal An Egg", Color3.fromRGB(20, 45, 80), function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/tienkhanh1/Chilli-Hub-Script/refs/heads/main/StealAnEgg"))()
     notify("Chilli Hub Loaded!")
+end)
+
+createBtn(container, "⚡ Ajjns Hub", "سکرپتی نوێی Luarmor", Color3.fromRGB(30, 60, 40), function()
+    loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/359e97f8618e9008afe5f496184ebb7c.lua"))()
+    notify("Ajjns Hub Loaded!")
 end)
 
 createBtn(container, "🗑️ Clear / Destroy GUI", "پاککردنەوەی تەواوی مەنیوکان", Color3.fromRGB(50, 25, 30), function()
